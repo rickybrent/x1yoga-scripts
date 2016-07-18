@@ -1,0 +1,2 @@
+event=ibm/hotkey LEN0068:00 00000080 000060f0
+action=/usr/local/bin/x1yoga-transform.sh

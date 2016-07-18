@@ -1,0 +1,4 @@
+#!/bin/bash
+TOUCH_IDS=`xinput list | grep "Wacom" | cut -f "2" -d "=" | cut -f 1 | tr "\n" "," | sed 's/,$//'`
+/usr/bin/google-chrome-stable --touch-devices=$TOUCH_IDS --touch-events $@
+

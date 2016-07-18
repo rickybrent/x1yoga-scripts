@@ -1,0 +1,12 @@
+#!/bin/dash
+WINAME=`xdotool getwindowfocus getwindowname`
+ROTATION="$(xrandr -q --verbose | grep 'connected' | egrep -o  '\) (normal|left|inverted|right) \(' | egrep -o '(normal|left|inverted|right)')"
+ISPDF=`echo $WINAME | grep \.pdf`
+if [ "$ISPDF" != "" ] && [ "$ROTATION" != "normal" ]; then
+echo 1
+    xdotool keyup XF86AudioLowerVolume
+    xdotool key Next
+else
+    pactl set-sink-volume 0 -10%
+fi
+
